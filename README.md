@@ -35,7 +35,7 @@ $$
 * **Visualization:** Integrated `matplotlib` to plot the coordinate grid, weighted demand nodes, and the iterative descent trajectory.
 
 ## Execution Stack
-* **Python 3.x**
+* **Python 3.14**
 * **NumPy** (Linear algebra & vector operations)
 * **Matplotlib** (Convergence visualization)
 
