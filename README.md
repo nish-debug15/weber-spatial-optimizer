@@ -11,9 +11,13 @@ By processing the exact GPS coordinates and historical emergency demand weights 
 The objective is to minimize the total weighted flight distance. Because the Euclidean distance cost surface is convex but highly nonlinear, setting the derivatives to zero does not yield an algebraic solution for more than three coordinates. 
 
 **The Cost Function (J):**
-J(X,Y) = Σ [ w_i * √((X - x_i)² + (Y - y_i)²) ]
+$$J(X,Y) = \sum_{i=1}^{n} w_i \sqrt{(X-x_i)^2 + (Y-y_i)^2}$$
 
 By calculating the partial derivatives of the cost function with respect to X (Longitude) and Y (Latitude), the algorithm determines the gradient vector and steps in the direction of steepest descent.
+
+**The Update Rules:**
+$$X_{new} = X_{old} - \alpha \frac{\partial J}{\partial X}$$
+$$Y_{new} = Y_{old} - \alpha \frac{\partial J}{\partial Y}$$
 
 **The Update Rules:**
 X_new = X_old - α(∂J / ∂X)
