@@ -8,20 +8,26 @@ This repository contains a spatial optimization engine built from scratch to sol
 By processing the exact GPS coordinates and historical emergency demand weights of five major medical centers, the algorithm iteratively descends a highly non-linear cost surface to find the global minimum—optimizing for battery efficiency, flight time, and critical care delivery speed.
 
 ## The Mathematical Engine
+
 The objective is to minimize the total weighted flight distance. Because the Euclidean distance cost surface is convex but highly nonlinear, setting the derivatives to zero does not yield an algebraic solution for more than three coordinates. 
 
 **The Cost Function (J):**
-$$J(X,Y) = \sum_{i=1}^{n} w_i \sqrt{(X-x_i)^2 + (Y-y_i)^2}$$
+
+$$
+J(X,Y) = \sum_{i=1}^{n} w_i \sqrt{(X-x_i)^2 + (Y-y_i)^2}
+$$
 
 By calculating the partial derivatives of the cost function with respect to X (Longitude) and Y (Latitude), the algorithm determines the gradient vector and steps in the direction of steepest descent.
 
 **The Update Rules:**
-$$X_{new} = X_{old} - \alpha \frac{\partial J}{\partial X}$$
-$$Y_{new} = Y_{old} - \alpha \frac{\partial J}{\partial Y}$$
 
-**The Update Rules:**
-X_new = X_old - α(∂J / ∂X)
-Y_new = Y_old - α(∂J / ∂Y)
+$$
+X_{new} = X_{old} - \alpha \frac{\partial J}{\partial X}
+$$
+
+$$
+Y_{new} = Y_{old} - \alpha \frac{\partial J}{\partial Y}
+$$
 
 ## Key Technical Implementations
 * **Algorithmic Execution:** Built entirely in Python using `numpy` for vectorized matrix operations, ensuring lightweight and rapid computation.
